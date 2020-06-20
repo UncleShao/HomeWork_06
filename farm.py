@@ -16,3 +16,9 @@ class Chicken:
 
 class Goat:
     pass
+
+
+class Duck:
+    pass
+
+
