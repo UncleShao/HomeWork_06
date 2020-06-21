@@ -3,39 +3,59 @@ from pprint import pprint
 class Animals:
     name = 'Name'
     weight = 0
-    condition = 'hungry'
+    appetite = 'hungry'
 
-    def __init__(self):
-        self.feed = 'fed'
-
-
-
-goose0 = Animals()
-goose0.name = 'Gray'
-goose0.weight = 4 #kg
-
-goose1 = Animals()
-goose1.name = 'White'
-goose1.weight = 3 #kg
+    def food(self):
+        """Кормим животное"""
+        self.appetite = 'fed'
 
 
-Cow = Animals()
+class Goose(Animals):
+    laying_hen = 'no_egged'
 
-class Sheep:
-    pass
+    def eggs(self):
+        """Собираем яйца"""
+        self.laying_hen = 'egged'
 
-class Chicken:
-    pass
 
-class Goat:
-    pass
+class Cow(Animals):
+    condition = 'full'
 
-class Duck:
-    pass
+    def milk(self):
+        """Доим"""
+        self.condition = 'empty'
+
+class Sheep(Animals):
+    hair_style = 'shaggy'
+
+    def cut(self):
+        """Стрижем"""
+        self.hair_style = 'bald'
+
+class Chicken(Animals):
+    laying_hen = 'no_egged'
+
+    def eggs(self):
+        """Собираем яйца"""
+        self.laying_hen = 'egged'
+
+class Goat(Animals):
+    condition = 'full'
+
+    def milk(self):
+        """Доим"""
+        self.condition = 'empty'
+
+class Duck(Animals):
+    laying_hen = 'no_egged'
+
+    def eggs(self):
+        """Собираем яйца"""
+        self.laying_hen = 'egged'
 
 pprint(Animals.__dict__)
-print(goose0.__dict__)
-print(goose1.__dict__)
+print(Cow.__dict__)
+print(Goose.__dict__)
 
 
 
