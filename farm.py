@@ -105,6 +105,10 @@ duck0 = Duck()
 duck0.name = 'Mallard'
 duck0.weight = 1  # kg
 
-pprint(Animals.__dict__)
-print(Cow.__dict__)
-print(Goose.__dict__)
+joe_farm = {goose0, goose1, cow0, sheep0, sheep1, chicken0, chicken1, goat0, goat1, duck0}
+
+
+
+
+
+
