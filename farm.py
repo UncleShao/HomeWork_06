@@ -9,17 +9,6 @@ class Animal:
         """Кормим животное"""
         self.appetite = 'fed'
 
-    def heavyweight(self):
-        heavy_name = ''
-        max_weight = 0
-        farm_weight = 0
-
-        for item in self.joe_farm:
-            farm_weight += item.weight
-            if item.weight > max_weight:
-                max_weight = item.weight
-                heavy_name = f'{item.name}'
-        return f'Общий вес животных на ферме {farm_weight} кг. Самое тяжелое животное - {heavy_name} с весом {max_weight} кг'
 
 class Egg(Animal):
     laying_hen = 'no_egged'
@@ -80,7 +69,20 @@ goat0 = Goat('Hooves', 50)
 goat1 = Goat('Horns', 70)
 duck0 = Duck('Mallard', 1)
 
-joe_farm = {goose0, goose1, cow0, sheep0, sheep1, chicken0, chicken1, goat0, goat1, duck0}
+joe_farm = [goose0, goose1, cow0, sheep0, sheep1, chicken0, chicken1, goat0, goat1, duck0]
+
+
+def heavyweight(self):
+    heavy_name = ''
+    max_weight = 0
+    farm_weight = 0
+
+    for item in self.joe_farm:
+        farm_weight += item.weight
+        if item.weight > max_weight:
+            max_weight = item.weight
+            heavy_name = item.name
+    return f'Общий вес животных на ферме {farm_weight} кг. Самое тяжелое животное - {heavy_name} с весом {max_weight} кг'
 
 farm = Animal(joe_farm)
 
