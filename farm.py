@@ -1,114 +1,87 @@
-from pprint import pprint
-
-
-class Animals:
-    name = 'Name'
-    weight = 0
+class Animal:
     appetite = 'hungry'
+
+    def __init__(self, name, weight):
+        self.name = name
+        self.weight = weight
 
     def food(self):
         """Кормим животное"""
         self.appetite = 'fed'
 
+    def heavyweight(self):
+        heavy_name = ''
+        max_weight = 0
+        farm_weight = 0
 
-class Goose(Animals):
+        for item in self.joe_farm:
+            farm_weight += item.weight
+            if item.weight > max_weight:
+                max_weight = item.weight
+                heavy_name = f'{item.name}'
+        return f'Общий вес животных на ферме {farm_weight} кг. Самое тяжелое животное - {heavy_name} с весом {max_weight} кг'
+
+class Egg(Animal):
     laying_hen = 'no_egged'
-    voice = "gnaws"
 
     def eggs(self):
         """Собираем яйца"""
         self.laying_hen = 'egged'
 
 
-class Cow(Animals):
+class Milk(Animal):
     condition = 'full'
-    voice = "groans"
 
-    def milk(self):
+    def milked(self):
         """Доим"""
         self.condition = 'empty'
 
 
-class Sheep(Animals):
+class Wool(Animal):
     hair_style = 'shaggy'
-    voice = "bleats"
 
     def cut(self):
         """Стрижем"""
         self.hair_style = 'bald'
 
 
-class Chicken(Animals):
-    laying_hen = 'no_egged'
+class Goose(Egg):
+    voice = "gnaws"
+
+
+class Cow(Milk):
+    voice = "groans"
+
+
+class Sheep(Wool):
+    voice = "bleats"
+
+
+class Chicken(Egg):
     voice = "cackle"
 
-    def eggs(self):
-        """Собираем яйца"""
-        self.laying_hen = 'egged'
 
-
-class Goat(Animals):
-    condition = 'full'
+class Goat(Wool, Milk):
     voice = "yell"
 
-    def milk(self):
-        """Доим"""
-        self.condition = 'empty'
 
-
-class Duck(Animals):
-    laying_hen = 'no_egged'
+class Duck(Egg):
     voice = "quack"
 
-    def eggs(self):
-        """Собираем яйца"""
-        self.laying_hen = 'egged'
 
-
-goose0 = Goose()
-goose0.name = 'Gray'
-goose0.weight = 4  # kg
-
-goose1 = Goose()
-goose1.name = 'White'
-goose1.weight = 3  # kg
-
-cow0 = Cow()
-cow0.name = "Manka"
-cow0.weight = 720  # kg
-
-sheep0 = Sheep()
-sheep0.name = 'Lamb'
-sheep0.weight = 70  # kg
-
-sheep1 = Sheep()
-sheep1.name = 'Curly'
-sheep1.weight = 80  # kg
-
-chicken0 = Chicken()
-chicken0.name = 'Ko_ko'
-chicken0.weight = 2  # kg
-
-chicken1 = Chicken()
-chicken1.name = 'Kukareku'
-chicken1.weight = 3  # kg
-
-goat0 = Goat()
-goat0.name = 'Hooves'
-goat0.weight = 50  # kg
-
-goat1 = Goat()
-goat1.name = 'Horns'
-goat1.weight = 70  # kg
-
-duck0 = Duck()
-duck0.name = 'Mallard'
-duck0.weight = 1  # kg
+goose0 = Goose('Gray', 4)
+goose1 = Goose('White', 3)
+cow0 = Cow('Manka', 720)
+sheep0 = Sheep('Lamb', 70)
+sheep1 = Sheep('Curly', 80)
+chicken0 = Chicken('Ko_ko', 2)
+chicken1 = Chicken('Kukareku', 3)
+goat0 = Goat('Hooves', 50)
+goat1 = Goat('Horns', 70)
+duck0 = Duck('Mallard', 1)
 
 joe_farm = {goose0, goose1, cow0, sheep0, sheep1, chicken0, chicken1, goat0, goat1, duck0}
 
+farm = Animal(joe_farm)
 
-
-
-
-
+print(farm.heavyweight())
