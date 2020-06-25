@@ -28,32 +28,27 @@ class Animal:
 
 
 class Egg(Animal):
+    """Дающие яйца"""
     egg_status_full = 'Яйца не собраны'
     egg_status_empty = 'гнездо пустое'
-    laying_hen = egg_status_full
-    animal_type = 'Дающие яйца'
-
+    egg_status = egg_status_full
 
 
 
 class Milk(Animal):
+    """Дающие молоко"""
     milk_status_full = 'вымя, полное молока'
     milk_status_empty = 'вымя пустое'
     milk_status = milk_status_full
-    animal_type = 'Дающие молоко'
 
-    def milked(self):
-        """Доим"""
-        self.milk_status = 'empty'
 
 
 class Wool(Animal):
-    hair_style = 'shaggy'
-    animal_type = 'Дающие шерсть'
+    """Дающие шерсть"""
+    hair_style_shaggy = 'повышенная лохматость'
+    hair_style_bald = 'Брюс Уиллис'
+    hair_style = hair_style_shaggy
 
-    def cut(self):
-        """Стрижем"""
-        self.hair_style = 'bald'
 
 
 class Goose(Egg):
@@ -70,9 +65,9 @@ class Goose(Egg):
         print(f'Видимо {self.animal_name} {self.animal_status}. Кормим питомца...')
         self.animal_status = self.status_full
         print(f'Ну вот, теперь {self.animal_name} {self.animal_status}')
-        print(f'Заглядываем в гнездо. {self.laying_hen}. Забираем яйца...')
-        self.laying_hen = self.egg_status_empty
-        print(f'Теперь {self.laying_hen}. Пока, {self.animal_name}')
+        print(f'Заглядываем в гнездо. {self.egg_status}. Забираем яйца...')
+        self.egg_status = self.egg_status_empty
+        print(f'Теперь {self.egg_status}. Пока, {self.animal_name}')
         print('== == == == == == == ==')
 
         return self.animal_status
@@ -101,7 +96,22 @@ class Cow(Milk):
 class Sheep(Wool):
     animal_sound = "Беее-е-е-е"
     animal_class = "овца"
-
+    def animal_start(self):
+        """
+        Взаимодействие с овцой
+        """
+        print('== == == == == == == ==')
+        print(f'Подходим к обитателю фермы по имени {self.animal_name}.')
+        print(f'{self.animal_name} - это {self.animal_class}.')
+        print(f'Увидев нас, {self.animal_name} начинает кричать "{self.animal_sound}".')
+        print(f'Видимо {self.animal_name} {self.animal_status}. Кормим питомца...')
+        self.animal_status = self.status_full
+        print(f'Ну вот, теперь {self.animal_name} {self.animal_status}.')
+        print(f'Что-то у {self.animal_name} {self.hair_style_shaggy}. Видимо, пора сходить к барберу..))')
+        self.hair_style = self.hair_style_bald
+        print(f'Отлично! Прическа теперь как у {self.hair_style}а. Пока, {self.animal_name}!')
+        print('== == == == == == == ==')
+        return self.animal_status
 
 class Chicken(Egg):
     animal_sound = "Ко-ко-ко"
@@ -117,20 +127,51 @@ class Chicken(Egg):
         print(f'Видимо {self.animal_name} {self.animal_status}. Кормим питомца...')
         self.animal_status = self.status_full
         print(f'Ну вот, теперь {self.animal_name} {self.animal_status}')
-        print(f'Заглядываем в гнездо. {self.laying_hen}. Забираем яйца...')
-        self.laying_hen = self.egg_status_empty
-        print(f'Теперь {self.laying_hen}. Пока, {self.animal_name}!')
+        print(f'Заглядываем в гнездо. {self.egg_status}. Забираем яйца...')
+        self.egg_status = self.egg_status_empty
+        print(f'Теперь {self.egg_status}. Пока, {self.animal_name}!')
         print('== == == == == == == ==')
         return self.animal_status
 
 class Goat(Milk):
     animal_sound = "Меее-е-е-е"
     animal_class = "коза"
-
+    def animal_start(self):
+        """
+        Взаимодействие с козой
+        """
+        print('== == == == == == == ==')
+        print(f'Подходим к обитателю фермы по имени {self.animal_name}.')
+        print(f'{self.animal_name} - это {self.animal_class}.')
+        print(f'Увидев нас, {self.animal_name} начинает кричать "{self.animal_sound}".')
+        print(f'Видимо {self.animal_name} {self.animal_status}. Кормим питомца...')
+        self.animal_status = self.status_full
+        print(f'Ну вот, теперь {self.animal_name} {self.animal_status}.')
+        print(f'Замечаем, что у {self.animal_name} {self.milk_status_full}. Надо срочно ее подоить!')
+        self.milk_status = self.milk_status_empty
+        print(f'Ого, сколько молока! Теперь {self.milk_status}. Пока, {self.animal_name}!')
+        print('== == == == == == == ==')
+        return self.animal_status
 
 class Duck(Egg):
     animal_sound = "Кря-кря"
     animal_class = "утка"
+    def animal_start(self):
+        """
+        Взаимодействие с уткой
+        """
+        print('== == == == == == == ==')
+        print(f'Подходим к обитателю фермы по имени {self.animal_name}.')
+        print(f'{self.animal_name} - это {self.animal_class}.')
+        print(f'Увидев нас, {self.animal_name} начинает кричать "{self.animal_sound}".')
+        print(f'Видимо {self.animal_name} {self.animal_status}. Кормим питомца...')
+        self.animal_status = self.status_full
+        print(f'Ну вот, теперь {self.animal_name} {self.animal_status}')
+        print(f'Заглядываем в гнездо. {self.egg_status}. Забираем яйца...')
+        self.egg_status = self.egg_status_empty
+        print(f'Теперь {self.egg_status}. Пока, {self.animal_name}!')
+        print('== == == == == == == ==')
+        return self.animal_status
 
 
 goose0 = Goose('Серый', 4)
@@ -157,7 +198,34 @@ def heavyweight(self):
         if item.animal_weight > max_weight:
             max_weight = item.animal_weight
             heavy_animal_name = item.animal_name
-    return f'Общий вес животных на ферме {all_farm_weight} кг. Самое тяжелое животное - {heavy_animal_name} с весом {max_weight} кг'
+    return f'Общий вес животных на ферме {all_farm_weight} кг. Самое тяжелое животное - {heavy_animal_name} с весом' \
+           f' {max_weight} кг'
 
-cow0.animal_start()
-
+while True:
+    cmd = input('Вы приехали помогать на ферму Дядюшки Джо и видите вокруг себя множество разных животных. К кому'
+                    ' подойдем? \n'
+                    '1 или 2 - гуси\n3 - корова\n4 или 5 - овцы\n6 или 7 - курицы\n8 или 9 - козы\n10 - утка\n'
+                'Введите цифру:  ')
+    if cmd == "1":
+        goose0.animal_start()
+    elif cmd == "2":
+        goose1.animal_start()
+    elif cmd == "3":
+        cow0.animal_start()
+    elif cmd == "4":
+        sheep0.animal_start()
+    elif cmd == "5":
+        sheep1.animal_start()
+    elif cmd == "6":
+        chicken0.animal_start()
+    elif cmd == "7":
+        chicken1.animal_start()
+    elif cmd == "8":
+        goat0.animal_start()
+    elif cmd == "9":
+        goat1.animal_start()
+    elif cmd == "10":
+        duck0.animal_start()
+    else:
+        print('Таких животных нет на ферме, сорь. Может попробуем еще раз?')
+        print('== == == == == == == ==')
