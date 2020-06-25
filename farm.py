@@ -187,8 +187,8 @@ duck0 = Duck('Кряква', 1)
 
 joe_farm = [goose0, goose1, cow0, sheep0, sheep1, chicken0, chicken1, goat0, goat1, duck0]
 
-
 def heavyweight(self):
+    """Вычисляем вес и имя жирдяя и общий вес всей фермы"""
     heavy_animal_name = None
     max_weight = 0
     all_farm_weight = 0
@@ -204,8 +204,9 @@ def heavyweight(self):
 while True:
     cmd = input('Вы приехали помогать на ферму Дядюшки Джо и видите вокруг себя множество разных животных. К кому'
                     ' подойдем? \n'
-                    '1 или 2 - гуси\n3 - корова\n4 или 5 - овцы\n6 или 7 - курицы\n8 или 9 - козы\n10 - утка\n'
-                'Введите цифру:  ')
+                    '1 или 2 - гуси\n3 - корова\n4 или 5 - овцы\n6 или 7 - курицы\n8 или 9 - козы\n10 - утка\nА может '
+                'желаете узнать самое тяжелое животное и общий вес живности на ферме (введите "0")\n'
+                'Ваш выбор? :  ')
     if cmd == "1":
         goose0.animal_start()
     elif cmd == "2":
@@ -226,6 +227,8 @@ while True:
         goat1.animal_start()
     elif cmd == "10":
         duck0.animal_start()
+    elif cmd == "0":
+        print(joe_farm.heavyweight())
     else:
         print('Таких животных нет на ферме, сорь. Может попробуем еще раз?')
         print('== == == == == == == ==')
