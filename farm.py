@@ -9,6 +9,10 @@ class Animal:
     animal_weight = 0
 
 
+    def __init__(self, name, weight):
+        self.animal_name = name
+        self.animal_weight = weight
+
     def animal_start(self):
         """Начинаем взаимодействовать с животным"""
         pass
@@ -20,10 +24,6 @@ class Animal:
     def get_animal_status(self):
         """Задаем состояние животного (голоден/сыт)"""
         return self.animal_status
-
-    def __init__(self, name, weight):
-        self.animal_name = name
-        self.animal_weight = weight
 
 
 
@@ -187,13 +187,13 @@ duck0 = Duck('Кряква', 1)
 
 joe_farm = [goose0, goose1, cow0, sheep0, sheep1, chicken0, chicken1, goat0, goat1, duck0]
 
-def heavyweight(self):
+def heavyweight():
     """Вычисляем вес и имя жирдяя и общий вес всей фермы"""
     heavy_animal_name = None
     max_weight = 0
     all_farm_weight = 0
 
-    for item in self.joe_farm:
+    for item in joe_farm:
         all_farm_weight += item.animal_weight
         if item.animal_weight > max_weight:
             max_weight = item.animal_weight
@@ -228,7 +228,9 @@ while True:
     elif cmd == "10":
         duck0.animal_start()
     elif cmd == "0":
-        print(joe_farm.heavyweight())
+        print('== == == == == == == ==')
+        print(heavyweight())
+        print('== == == == == == == ==')
     else:
         print('Таких животных нет на ферме, сорь. Может попробуем еще раз?')
         print('== == == == == == == ==')
